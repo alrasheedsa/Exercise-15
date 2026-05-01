@@ -30,10 +30,8 @@ public class NewsModel {
     @NotEmpty(message = "Image URL must not be empty")
     private String imageUrl;
 
-    @AssertFalse(message = "isPublished must be default false")
     private boolean isPublished;
 
     @JsonFormat(pattern = "yyyy-MM-dd")
-    @NotNull(message = "Publish date cannot be null")
     private LocalDate publishDate;
 }
