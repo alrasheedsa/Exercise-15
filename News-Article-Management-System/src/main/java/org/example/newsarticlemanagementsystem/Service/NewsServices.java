@@ -14,6 +14,8 @@ public class NewsServices {
 
     // Add new news
     public void addNews(NewsModel newsModel) {
+        newsModel.setPublished(false);
+        newsModel.setPublishDate(null);
         newsArray.add(newsModel);
     }
 
@@ -39,10 +41,11 @@ public class NewsServices {
         return false;
     }
 
-    public boolean publishNews(String id) {
+   public boolean publishNews(String id) {
         for (NewsModel n : newsArray) {
             if (n.getId().equals(id)) {
                 n.setPublished(true);
+                n.setPublishDate(LocalDate.now());
                 return true;
             }
         }
